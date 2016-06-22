@@ -28,6 +28,9 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
+        ActionCable.server.broadcast 'donations',
+          message: donations.amount
+        head :ok
         format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: @donation }
       else
