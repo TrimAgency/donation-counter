@@ -26,18 +26,16 @@ class DonationsController < ApplicationController
   def create
     @donation = Donation.new(donation_params)
 
-    respond_to do |format|
       if @donation.save
         ActionCable.server.broadcast 'donations',
-          message: @donation.amount
+          donation: @donation.amount
         head :ok
-        format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
-        format.json { render :show, status: :created, location: @donation }
+        #format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
+        #format.json { render :show, status: :created, location: @donation }
       else
-        format.html { render :new }
-        format.json { render json: @donation.errors, status: :unprocessable_entity }
+        #format.html { render :new }
+        #format.json { render json: @donation.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /donations/1

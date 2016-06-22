@@ -1,10 +1,10 @@
-// app/assets/javascripts/channels/donations.js
+App.donations = App.cable.subscriptions.create("DonationsChannel', {
+        received: function(data) {
+            $("#donations").removeClass('hidden')
+                return $('#donations').append(this.renderMessage(data));
+        },
 
-//= require cable
-//= require_self
-//= require_tree .
-
-this.App = {};
-
-App.cable = ActionCable.createConsumer();
-
+        renderMessage: function(data) {
+            return "<p> <b>" + data.amount + "</b> </p>";
+        }
+        });
