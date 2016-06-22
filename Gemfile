@@ -23,16 +23,39 @@ gem 'turbolinks', '~> 5.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# added by JDB:
+gem 'pry-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+# added by JDB, start:
+  gem 'dotenv-rails'
+  # Pry & friends
+  # 2016-06-07, in case we need to use Foreman with Pry later, noting this here
+  # pry-byebug 3.3.x is not compatible w/pry-remote, the developer is
+  #   apparently no longer actively working on the pry-remote gem
+  #   pry-byebug 1.3.3 works fine with pry-remote
+  # gem 'pry-byebug', '1.3.3'
+  # gem 'pry-remote' # for using Pry with foreman
+  gem 'pry'
+  # gem 'pry-rails' is in all environments, useful for Heroku console
+  gem 'pry-byebug'
+  gem 'pry-clipboard'
+  gem 'pry-doc'
+  gem 'pry-docmore'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+# added by JDB, end
+
 end
 
 group :development do
@@ -46,3 +69,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
