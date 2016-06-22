@@ -31,6 +31,7 @@ gem 'redis', '~> 3.0'
 # gem 'capistrano-rails', group: :development
 
 # added by JDB:
+gem 'pg'
 gem 'pry-rails'
 
 group :development, :test do
