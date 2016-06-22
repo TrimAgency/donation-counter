@@ -7,14 +7,16 @@ development:
   <<: *default
   username: donation_counter
   host: localhost
-  password: <%= ENV['DONATION_COUNTER_DATABASE_PASSWORD'] %>
+  #password: <%= ENV['DONATION_COUNTER_DATABASE_PASSWORD'] %>
+  password: password
   database: donation_counter_development
 
 test:
   <<: *default
   username: donation_counter
   host: localhost
-  password: <%= ENV['DONATION_COUNTER_DATABASE_PASSWORD'] %>
+  #password: <%= ENV['DONATION_COUNTER_DATABASE_PASSWORD'] %>
+  password: password
   database: donation_counter_test
 
 production:
